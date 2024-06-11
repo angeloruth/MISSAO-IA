@@ -1,51 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título emoldurado</title>
-    <style>
-        /* Estilos CSS para o título emoldurado */
-        .title-frame {
-            text-align: center;
-            border: 2px solid #000;
-            padding: 10px;
-            width: 50%;
-            margin: 0 auto;
-            font-size: 24px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pergunta</title>
 </head>
 <body>
- <h2>Qual é a capital do Brasil?</h2>
 
-<input type="radio" id="brasilia" name="capital" value="brasilia">
-<label for="brasilia">Brasília</label><br>
-<input type="radio" id="rio" name="capital" value="rio">
-<label for="rio">Rio de Janeiro</label><br>
-<input type="radio" id="sp" name="capital" value="sp">
-<label for="sp">São Paulo</label><br><br>
+<h2>Qual é o seu primeiro pensamento ao se deparar com equipamentos sonoros que pensam sozinhos?</h2>
 
-<button onclick="checkAnswer()">Verificar Resposta</button>
+<input type="radio" id="assustador" name="resposta" value="assustador">
+<label for="assustador">Isso é assustador</label><br>
+<input type="radio" id="incrivel" name="resposta" value="incrivel">
+<label for="incrivel">Isso é incrível</label><br><br>
 
-<p id="resposta"></p>
+<button onclick="verificarResposta()">Verificar Resposta</button>
+
+<p id="feedback"></p>
 
 <script>
-function checkAnswer() {
-  var resposta = document.querySelector('input[name="capital"]:checked');
-  var respostaText;
+function verificarResposta() {
+  var resposta = document.querySelector('input[name="resposta"]:checked');
+  var feedbackText;
   
   if (resposta) {
-    if (resposta.value === "brasilia") {
-      respostaText = "Correto!";
-    } else {
-      respostaText = "Incorreto. A capital do Brasil é Brasília.";
+    if (resposta.value === "assustador") {
+      feedbackText = "Você acha isso assustador. Interessante!";
+    } else if (resposta.value === "incrivel") {
+      feedbackText = "Você acha isso incrível. Legal!";
     }
   } else {
-    respostaText = "Por favor, selecione uma opção.";
+    feedbackText = "Por favor, selecione uma opção.";
   }
   
-  document.getElementById("resposta").innerHTML = respostaText;
+  document.getElementById("feedback").innerHTML = feedbackText;
 }
 </script>
 
