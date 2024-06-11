@@ -17,8 +17,37 @@
     </style>
 </head>
 <body>
-    <div class="title-frame">
-        Você decide o futuro da IA
-    </div>
+ <h2>Qual é a capital do Brasil?</h2>
+
+<input type="radio" id="brasilia" name="capital" value="brasilia">
+<label for="brasilia">Brasília</label><br>
+<input type="radio" id="rio" name="capital" value="rio">
+<label for="rio">Rio de Janeiro</label><br>
+<input type="radio" id="sp" name="capital" value="sp">
+<label for="sp">São Paulo</label><br><br>
+
+<button onclick="checkAnswer()">Verificar Resposta</button>
+
+<p id="resposta"></p>
+
+<script>
+function checkAnswer() {
+  var resposta = document.querySelector('input[name="capital"]:checked');
+  var respostaText;
+  
+  if (resposta) {
+    if (resposta.value === "brasilia") {
+      respostaText = "Correto!";
+    } else {
+      respostaText = "Incorreto. A capital do Brasil é Brasília.";
+    }
+  } else {
+    respostaText = "Por favor, selecione uma opção.";
+  }
+  
+  document.getElementById("resposta").innerHTML = respostaText;
+}
+</script>
+
 </body>
 </html>
